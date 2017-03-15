@@ -9,11 +9,11 @@ package discountstrategyproject;
  *
  * @author brandonstoiber
  */
-public interface DiscountStrategy {
+public class ConsoleOutputReceipt implements OutputReceiptStrategy{
     
-    public abstract double getDiscountAmount(double cost, int qty);
+    @Override
+    public final void outputReceipt(String message){
+        System.out.println(message);
+    }
     
-    //public abstract double getDiscount();
-    
-   // public abstract void setDiscount(double discount);
 }

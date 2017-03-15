@@ -22,7 +22,7 @@ public class Receipt {
         return data.findCustomer(custId);
     }
         
-    private void addToArray(final LineItem item) {
+    private final void addToArray(final LineItem item) {
         // needs validation
         LineItem[] tempItems = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, tempItems, 0, lineItems.length);
@@ -30,20 +30,26 @@ public class Receipt {
         lineItems = tempItems;
         tempItems = null;
     }
-    public void addItemToReciept(String prodId, int qty, RetailDataStorage data){
+    public final void addItemToReceipt(String prodId, int qty, RetailDataStorage data){
         LineItem item = new LineItem (prodId, qty, data);
         this.addToArray(item);
     }
+    //Pull the information from lineitem to populate the receipt data.
+//    public final String receiptItems(){
+//        for(LineItem item : lineItems){
+//            item.
+//        }
+//    }
    
-    public LineItem[] getLineItems() {
+    public final LineItem[] getLineItems() {
         return lineItems;
     }
 
-    public void setLineItems(LineItem[] lineItems) {
+    public final void setLineItems(LineItem[] lineItems) {
         this.lineItems = lineItems;
     }
 
-    public Customer getCustomer() {
+    public final Customer getCustomer() {
         return customer;
     }
 

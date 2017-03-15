@@ -5,15 +5,15 @@
  */
 package discountstrategyproject;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author brandonstoiber
  */
-public interface DiscountStrategy {
-    
-    public abstract double getDiscountAmount(double cost, int qty);
-    
-    //public abstract double getDiscount();
-    
-   // public abstract void setDiscount(double discount);
+public class GuiReceipt implements OutputReceiptStrategy{
+    // use the receipt class means less work.
+    public final void outputReceipt(String message){
+        JOptionPane.showMessageDialog(null, message);
+    }
 }

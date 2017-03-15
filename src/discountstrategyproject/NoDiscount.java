@@ -12,20 +12,24 @@ package discountstrategyproject;
 public class NoDiscount implements DiscountStrategy{
     private double discount = 0;
     
-    public NoDiscount(){
-        this.discount = 0;
-    }
+   public NoDiscount(){
+      this.discount = 0;
+   }
+    
     @Override
     public double getDiscountAmount(double cost, int qty){
         return 0;
     }
-    public double getDiscount() {
-        return discount;
-    }
+   }
+//    @Override
+//    public double getDiscount() {
+//        return discount;
+//    }
+//
+//    @Override
+//    public void setDiscount(double discount) {
+//        this.discount = discount;
+//    }
+    
+    
 
-    public void setDiscount(double discount) {
-        this.discount = discount;
-    }
-    
-    
-}

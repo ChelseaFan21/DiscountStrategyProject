@@ -23,6 +23,9 @@ class Product {
     }
 
     public String getProdId() {
+        if(prodId == null || prodId.length() == 0){
+            throw new IllegalArgumentException("Please enter a valid product id");
+        }
         return prodId;
     }
 
@@ -35,6 +38,9 @@ class Product {
     }
 
     public void setProdName(String prodName) {
+        if(prodName == null || prodName.isEmpty()){
+            throw new IllegalArgumentException("Please enter a valid product name.");
+        }
         this.prodName = prodName;
     }
 
@@ -43,6 +49,8 @@ class Product {
     }
 
     public void setProdCost(double prodCost) {
+        // validate for double
+//        if(prodCost)
         this.prodCost = prodCost;
     }
 
@@ -53,6 +61,7 @@ class Product {
     public void setDiscount(DiscountStrategy discount) {
         this.discount = discount;
     }
+    // grabs the discount amount from the discount strategy class. 
     public double getDiscountAmount(int qty){
         return discount.getDiscountAmount(prodCost, qty);
     }

@@ -17,7 +17,7 @@ public class CheckOutTerminal {
     }
     
     public final void addProductToTransaction(String prodId, int qty, RetailDataStorage data){
-        receipt.addItemToReciept(prodId, qty, data);
+        receipt.addItemToReceipt(prodId, qty, data);
     }
     
     public final void endTransaction(){

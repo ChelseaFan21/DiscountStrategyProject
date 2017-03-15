@@ -9,11 +9,7 @@ package discountstrategyproject;
  *
  * @author brandonstoiber
  */
-public interface DiscountStrategy {
+public interface OutputReceiptStrategy {
     
-    public abstract double getDiscountAmount(double cost, int qty);
-    
-    //public abstract double getDiscount();
-    
-   // public abstract void setDiscount(double discount);
+    public abstract void outputReceipt(String message);
 }

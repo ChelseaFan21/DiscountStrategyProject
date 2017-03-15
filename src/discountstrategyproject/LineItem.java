@@ -26,12 +26,11 @@ public class LineItem {
        public String getLineItemInfo(){
         String data = " ";
         
-        data += product.getProdId() + "     ";
-        data += product.getProdName() + "     ";
-        data += product.getProdCost() + "     ";
-        data += qty + "     ";
-        // create a helper class for equations
-        // price * quantity = subtotal
+        data += product.getProdId();//printf
+        data += product.getProdName();//printf;
+        data += product.getProdCost();// use printf;
+        data += qty; // use printf
+        data += getSubTotal();
         data += product.getDiscount().getDiscountAmount(product.getProdCost(),qty);
         
         return data;
@@ -52,6 +51,10 @@ public class LineItem {
 
     public void setQty(int qty) {
         this.qty = qty;
+    }
+    public final double getSubTotal(){
+        double subTotal = product.getProdCost() * qty;
+        return subTotal;
     }
     
 }

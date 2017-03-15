@@ -10,10 +10,11 @@ package discountstrategyproject;
  * @author brandonstoiber
  */
 public class QtyDiscount implements DiscountStrategy {
+
     private double discount;
     private int minQty;
-    
-    public QtyDiscount(double discount, int minQty){
+
+    public QtyDiscount(double discount, int minQty) {
         this.setDiscount(discount);
         this.setMinQty(minQty);
     }
@@ -33,14 +34,18 @@ public class QtyDiscount implements DiscountStrategy {
     public void setMinQty(int minQty) {
         this.minQty = minQty;
     }
-    
-    public final double getDiscountAmount(double cost, int qty){
+
+    @Override
+    public final double getDiscountAmount(double cost, int qty) {
         discount = 0;
-        if(qty >= minQty){
-           discount = cost * qty * discount;
+        if (qty >= minQty) {
+
+            discount = cost * qty * discount;
+        } else {
+
+            discount = 0;
         }
         return discount;
     }
-    
-    
+
 }

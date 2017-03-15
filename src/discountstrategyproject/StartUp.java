@@ -9,7 +9,7 @@ package discountstrategyproject;
  *
  * @author brandonstoiber
  */
-public class DiscountStrategyProject {
+public class StartUp {
 
     /**
      * @param args the command line arguments
@@ -19,9 +19,9 @@ public class DiscountStrategyProject {
         CheckOutTerminal newTerminal = new CheckOutTerminal();
         RetailDataStorage newStorage = new MemoryAccess();
 
-        newTerminal.startTransaction("101", newStorage);
-        newTerminal.addProductToTransaction(prodId, 0, newStorage);
-        newTerminal.addProductToTransaction(prodId, 0, newStorage);
+        newTerminal.startTransaction("", newStorage);
+        newTerminal.addProductToTransaction("A101", 0, newStorage);
+        newTerminal.addProductToTransaction("C222", 0, newStorage);
     }
 
 }
