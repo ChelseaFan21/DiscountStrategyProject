@@ -39,6 +39,8 @@ public class Customer {
         }
         this.custName = custName;
     }
-    
+    public final String findCustomer(String custId, RetailDataStorage data){
+        return findCustomer(custId, data);
+    }
     
 }

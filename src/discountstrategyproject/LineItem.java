@@ -19,7 +19,7 @@ public class LineItem {
     }
     
     public final Product findProduct(String prodId, RetailDataStorage data){
-        return data.findProduct(prodId);
+        return data.findProduct(prodId, data);
     }
     
     //create a method to get all of the data for the receipt

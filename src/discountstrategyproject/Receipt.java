@@ -13,31 +13,35 @@ public class Receipt {
     private LineItem[] lineItems;
     private Customer customer;
     private RetailDataStorage data;
-    private receiptFormattingStrategy format;
+    private ReceiptFormattingStrategy format;
     
     public Receipt(String custId, RetailDataStorage data){
         customer = findCustomer(custId, data);
     }
     
     public final Customer findCustomer(String custId, RetailDataStorage data){
-        return data.findCustomer(custId);
+        return data.findCustomer(custId, data);
+    }
+     public final void addItemToReceipt(String prodId, int qty, RetailDataStorage data){
+        LineItem item = new LineItem (prodId, qty, data);
+        addToArray(item);
     }
         
-    private final void addToArray(final LineItem item) {
+    private void addToArray(LineItem item) {
         // needs validation
+        if(item == null){
+            throw new NullPointerException();
+        }
         LineItem[] tempItems = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, tempItems, 0, lineItems.length);
         tempItems[lineItems.length] = item;
         lineItems = tempItems;
         tempItems = null;
-    }
-    public final void addItemToReceipt(String prodId, int qty, RetailDataStorage data){
-        LineItem item = new LineItem (prodId, qty, data);
-        this.addToArray(item);
-    }
+        }
+    
     //Pull the information from lineitem to populate the receipt data.
     public final String receiptItems(){
-        String data = "";
+        String data = " ";
         data += format.storeGreeting();
         
         data += "Sold to: " + customer.getCustName() + "\n\n";

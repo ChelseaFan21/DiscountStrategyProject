@@ -9,7 +9,7 @@ package discountstrategyproject;
  *
  * @author brandonstoiber
  */
-public class receiptFormattingStrategy {
+public class ReceiptFormattingStrategy {
     
     public final String storeGreeting(){
        String greeting = "";
@@ -22,7 +22,7 @@ public class receiptFormattingStrategy {
 //    }
     public final String printTitles(){
        String titles = "";
-    titles += "Product Id          + Product Name +           + Price +          + Sub Total +          Discount\n";
+    titles += "Product Id +          + Product Name +           + Price +          + Sub Total +         + Discount\n";
     titles += "----------------------------------------------------------------------------------------------------\n";
     
     return titles;

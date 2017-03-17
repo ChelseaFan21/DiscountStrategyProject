@@ -16,12 +16,14 @@ public class StartUp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        CheckOutTerminal newTerminal = new CheckOutTerminal();
+        CheckoutTerminal newTerminal = new CheckoutTerminal();
         RetailDataStorage newStorage = new MemoryAccess();
 
-        newTerminal.startTransaction("", newStorage);
-        newTerminal.addProductToTransaction("A101", 0, newStorage);
-        newTerminal.addProductToTransaction("C222", 0, newStorage);
+        newTerminal.startTransaction(" ", newStorage);
+        newTerminal.addProductToTransaction("A101", 1, newStorage);
+        newTerminal.addProductToTransaction("C222", 1, newStorage);
+        
+        newTerminal.endTransaction();
     }
 
 }

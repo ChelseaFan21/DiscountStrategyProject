@@ -65,6 +65,9 @@ class Product {
     public double getDiscountAmount(int qty){
         return discount.getDiscountAmount(prodCost, qty);
     }
+    public String findProduct(String prodId, RetailDataStorage data){
+        return findProduct(prodId, data);
+    }
     
     
 }

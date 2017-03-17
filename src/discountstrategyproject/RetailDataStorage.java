@@ -11,7 +11,7 @@ package discountstrategyproject;
  */
 public interface RetailDataStorage {
     
-    public abstract Customer findCustomer(String custId);
+    public abstract Customer findCustomer(String custId, RetailDataStorage data);
     
-    public abstract Product findProduct(String prodId);
+    public abstract Product findProduct(String prodId, RetailDataStorage data);
 }

@@ -9,8 +9,13 @@ package discountstrategyproject;
  *
  * @author brandonstoiber
  */
-public class CheckOutTerminal {
+public class CheckoutTerminal {
     private Receipt receipt;
+    private OutputReceiptStrategy strategy;
+    
+    public CheckoutTerminal(){
+    this.setStrategy(strategy);
+}
     
     public final void startTransaction(String custId, RetailDataStorage data){
         receipt = new Receipt(custId, data);
@@ -22,5 +27,16 @@ public class CheckOutTerminal {
     
     public final void endTransaction(){
         // create a output strategy.
+        strategy.outputReceipt(receipt.receiptItems());
     }
+
+    public OutputReceiptStrategy getStrategy() {
+        return strategy;
+    }
+
+    public void setStrategy(OutputReceiptStrategy strategy) {
+        this.strategy = strategy;
+    }
+    
+    
 }
