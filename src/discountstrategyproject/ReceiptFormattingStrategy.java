@@ -9,24 +9,27 @@ package discountstrategyproject;
  *
  * @author brandonstoiber
  */
+// make this an interface
 public class ReceiptFormattingStrategy {
+// public abstract storeGreeting();
+// public abstract printTitles();
     
+    
+// add this as a subclass.
     public final String storeGreeting(){
-       String greeting = "";
-        
-       greeting += "Thank you for shopping at Kohl's. \n\n";
-       return greeting;
+   
+       return "Welcome to Kohl's";
     }
 //    public final void printLine(){
 //        
 //    }
-    public final String printTitles(){
-       String titles = "";
-    titles += "Product Id +          + Product Name +           + Price +          + Sub Total +         + Discount\n";
-    titles += "----------------------------------------------------------------------------------------------------\n";
-    
-    return titles;
+
+    public String getFormattedData(Receipt receipt){
+        data += "";
+        data += storeGreeting() + "\n";
+        data += receipt.getLineItems();
+        data
+        
     }
-    
     
 }

@@ -10,14 +10,14 @@ package discountstrategyproject;
  * @author brandonstoiber
  */
 public class NoDiscount implements DiscountStrategy{
-    private double discount = 0;
-    
-   public NoDiscount(){
-      this.discount = 0;
-   }
-    
+//    private double discount = 0;
+//    
+//   public NoDiscount(){
+//      this.discount = 0;
+//   }
+//    
     @Override
-    public double getDiscountAmount(double cost, int qty){
+    public final double getDiscountAmount(double cost, int qty){
         return 0;
     }
    }

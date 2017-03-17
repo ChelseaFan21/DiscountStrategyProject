@@ -23,7 +23,7 @@ public class Customer {
     }
 
     public final void setCustId(String custId) {
-        if(custId == null || custId.length() == 0){
+        if(custId.length() == 0){
             throw new IllegalArgumentException("");
         }
         this.custId = custId;

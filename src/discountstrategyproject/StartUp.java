@@ -17,13 +17,16 @@ public class StartUp {
     public static void main(String[] args) {
         // TODO code application logic here
         CheckoutTerminal newTerminal = new CheckoutTerminal();
-        RetailDataStorage newStorage = new MemoryAccess();
+        RetailDataStorage storage1 = new MemoryAccess();
+        OutputReceiptStrategy output1 = new ConsoleOutputReceipt();
+        OutputReceiptStrategy output2 = new GuiReceipt();
 
-        newTerminal.startTransaction(" ", newStorage);
-        newTerminal.addProductToTransaction("A101", 1, newStorage);
-        newTerminal.addProductToTransaction("C222", 1, newStorage);
+        newTerminal.startTransaction(" ", storage1);
+        newTerminal.addProductToTransaction("A101", 2, storage1);
+        newTerminal.addProductToTransaction("C222", 1, storage1);
         
-        newTerminal.endTransaction();
+        output1.outputReceipt(newTerminal.endTransaction());
+        //output2.outputReceipt(newTerminal.endTransaction());
     }
 
 }

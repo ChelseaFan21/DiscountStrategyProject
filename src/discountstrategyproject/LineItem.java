@@ -23,33 +23,32 @@ public class LineItem {
     }
     
     //create a method to get all of the data for the receipt
-       public String getLineItemInfo(){
-        String data = " ";
-        
-        data += product.getProdId() + "          ";//printf
-        data += product.getProdName() + "          ";//printf;
-        data += product.getProdCost() + "          ";// use printf;
-        data += qty + "          "; // use printf
-        data += getSubTotal() + "           ";
-        data += product.getDiscount().getDiscountAmount(product.getProdCost(),qty) + "          ";
-        
+       public final String getLineItemInfo(){
+//        String data = product.getProdId() + "          ";//printf
+//        data += product.getProdName() + "          ";//printf;
+//        data += product.getProdCost() + "          ";// use printf;
+//        data += qty + "          "; // use printf
+//        data += getSubTotal() + "           ";
+//        data += product.getDiscount().getDiscountAmount(product.getProdCost(),qty) + "\n";
+          String data = String.format("%-8s%12s$%7.2f  %3d  $%7.2f  $%7.2f \n", product.getProdId(), product.getProdName(), product.getProdCost(), qty,
+        getSubTotal(), product.getDiscount().getDiscountAmount(product.getProdCost(),qty));      
         return data;
     }
 
 
-    public Product getProduct() {
+    public final Product getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public final void setProduct(Product product) {
         this.product = product;
     }
 
-    public int getQty() {
+    public final int getQty() {
         return qty;
     }
 
-    public void setQty(int qty) {
+    public final void setQty(int qty) {
         this.qty = qty;
     }
     public final double getSubTotal(){

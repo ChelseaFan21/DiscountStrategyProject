@@ -13,10 +13,10 @@ public class Receipt {
     private LineItem[] lineItems;
     private Customer customer;
     private RetailDataStorage data;
-    private ReceiptFormattingStrategy format;
     
     public Receipt(String custId, RetailDataStorage data){
         customer = findCustomer(custId, data);
+        lineItems = new LineItem[0];
     }
     
     public final Customer findCustomer(String custId, RetailDataStorage data){
@@ -41,12 +41,12 @@ public class Receipt {
     
     //Pull the information from lineitem to populate the receipt data.
     public final String receiptItems(){
-        String data = " ";
-        data += format.storeGreeting();
+        String data = "";
+//       format.storeGreeting();
         
-        data += "Sold to: " + customer.getCustName() + "\n\n";
+//      "Sold to: " + customer.getCustName() + "\n\n";
         
-        data += format.printTitles();
+//        data += format.printTitles();
         
         for(LineItem item : lineItems){
             data += item.getLineItemInfo();
@@ -66,15 +66,15 @@ public class Receipt {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public final void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
-    public RetailDataStorage getData() {
+    public final RetailDataStorage getData() {
         return data;
     }
 
-    public void setData(RetailDataStorage data) {
+    public final void setData(RetailDataStorage data) {
         this.data = data;
     }
     

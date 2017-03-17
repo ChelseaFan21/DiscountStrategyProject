@@ -11,11 +11,11 @@ package discountstrategyproject;
  */
 public class CheckoutTerminal {
     private Receipt receipt;
-    private OutputReceiptStrategy strategy;
-    
+    private ReceiptFormattingStrategy format;
+
     public CheckoutTerminal(){
-    this.setStrategy(strategy);
-}
+        format = new ReceiptFormattingStrategy();
+    }
     
     public final void startTransaction(String custId, RetailDataStorage data){
         receipt = new Receipt(custId, data);
@@ -25,18 +25,11 @@ public class CheckoutTerminal {
         receipt.addItemToReceipt(prodId, qty, data);
     }
     
-    public final void endTransaction(){
+    public final String endTransaction(){
         // create a output strategy.
-        strategy.outputReceipt(receipt.receiptItems());
+        return format.storeGreeting() + receipt.receiptItems();
     }
 
-    public OutputReceiptStrategy getStrategy() {
-        return strategy;
-    }
-
-    public void setStrategy(OutputReceiptStrategy strategy) {
-        this.strategy = strategy;
-    }
     
     
 }
