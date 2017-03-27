@@ -16,16 +16,18 @@ public class StartUp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        CheckoutTerminal newTerminal = new CheckoutTerminal();
+      
         RetailDataStorage storage1 = new MemoryAccess();
         OutputReceiptStrategy output1 = new ConsoleOutputReceipt();
         OutputReceiptStrategy output2 = new GuiReceipt();
+        ReceiptFormattingStrategy format = new DetailReceiptFormat();
+        CheckoutTerminal newTerminal = new CheckoutTerminal(output1, output2, format);
 
-        newTerminal.startTransaction(" ", storage1);
+        newTerminal.startTransaction("300", storage1);
         newTerminal.addProductToTransaction("A101", 2, storage1);
         newTerminal.addProductToTransaction("C222", 1, storage1);
+        newTerminal.endTransaction();
         
-        output1.outputReceipt(newTerminal.endTransaction());
         //output2.outputReceipt(newTerminal.endTransaction());
     }
 

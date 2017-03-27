@@ -23,8 +23,8 @@ public class Customer {
     }
 
     public final void setCustId(String custId) {
-        if(custId.length() == 0){
-            throw new IllegalArgumentException("");
+        if(custId == null){
+            throw new IllegalArgumentException("Customer Id must be provided.");
         }
         this.custId = custId;
     }
@@ -34,13 +34,8 @@ public class Customer {
     }
 
     public final void setCustName(String custName) {
-        if(custName == null || custName.isEmpty()){
-            throw new IllegalArgumentException("");
-        }
         this.custName = custName;
     }
-    public final String findCustomer(String custId, RetailDataStorage data){
-        return findCustomer(custId, data);
-    }
+
     
 }

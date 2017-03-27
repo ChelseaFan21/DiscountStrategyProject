@@ -19,15 +19,21 @@ public class LineItem {
     }
     
     public final Product findProduct(String prodId, RetailDataStorage data){
+        if(prodId == null){
+            throw new IllegalArgumentException("Product Id can't be null");
+        }else if(data == null){
+            throw new IllegalArgumentException("Database can't be null");
+        }else{
         return data.findProduct(prodId, data);
+        }
     }
     
     //create a method to get all of the data for the receipt
        public final String getLineItemInfo(){
-//        String data = product.getProdId() + "          ";//printf
-//        data += product.getProdName() + "          ";//printf;
-//        data += product.getProdCost() + "          ";// use printf;
-//        data += qty + "          "; // use printf
+//        String data = product.getProdId() + "    ";
+//        data += product.getProdName() + "          ";
+//        data += product.getProdCost() + "          ";
+//        data += getQty() + "          ";
 //        data += getSubTotal() + "           ";
 //        data += product.getDiscount().getDiscountAmount(product.getProdCost(),qty) + "\n";
           String data = String.format("%-8s%12s$%7.2f  %3d  $%7.2f  $%7.2f \n", product.getProdId(), product.getProdName(), product.getProdCost(), qty,
@@ -36,24 +42,23 @@ public class LineItem {
     }
 
 
-    public final Product getProduct() {
-        return product;
-    }
-
-    public final void setProduct(Product product) {
-        this.product = product;
-    }
-
     public final int getQty() {
         return qty;
     }
 
     public final void setQty(int qty) {
+        if(qty < 1 || qty > 1000){
+            throw new IllegalArgumentException("Quantity must be between 1 and 1000");
+        }
         this.qty = qty;
     }
     public final double getSubTotal(){
-        double subTotal = product.getProdCost() * qty;
+        double subTotal = (product.getProdCost() * getQty());
         return subTotal;
     }
-    
+    public final double getDiscountTotal(){
+        double discountTotal = 0.00;
+        discountTotal = product.getDiscount().getDiscountAmount(product.getProdCost(),qty);
+        return discountTotal;
+    }
 }
